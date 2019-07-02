@@ -39,8 +39,8 @@ public class QuestionParser implements Parser {
 
         // silver glob prok prok gold
         ArrayList<String> numerals = GalaxyUtility.removeEmptyTokens(romanNumeralsWithSpaces.split(SPACE));
-        String StringFirstMetal = numerals.get(0);
-        Float metalValue = NumberMapper.metalValueMap.get(StringFirstMetal);
+        String firstMetal = numerals.get(0);
+        Float metalValue = NumberMapper.metalValueMap.get(firstMetal);
 
         String targetMetal = numerals.get(numerals.size() -1);
 
@@ -61,7 +61,7 @@ public class QuestionParser implements Parser {
 
         float total = targetMetalValuePerUnit * targetQty;
         total = total/metalValue;
-        return (aliasString.toString() + " " +targetMetal + IS + total + " " + StringFirstMetal.trim());
+        return (aliasString.toString() + " " +targetMetal + IS + total + " " + firstMetal.trim());
     }
 
     private String parseHowManyQuery(String statement) {

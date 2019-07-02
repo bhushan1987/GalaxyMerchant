@@ -23,7 +23,7 @@ public class StatementParser implements Parser {
         this.numberConverter = numberConverter;
     }
 
-    public String parse(String statement) throws Exception {
+    public String parse(String statement) throws NumberFormatException {
         // glob pish tegj Silver is 3910 Credits
         ArrayList<String> tokens = GalaxyUtility.removeEmptyTokens(statement.split(IS));
 
@@ -47,7 +47,7 @@ public class StatementParser implements Parser {
     }
 
 
-    private Map<String, Object> processFirstPart(ArrayList<String> firstPart) throws Exception {
+    private Map<String, Object> processFirstPart(ArrayList<String> firstPart) throws NumberFormatException {
         Map<String, Object> partialMap = new HashMap();
         String metal = null;
         StringBuilder sb = new StringBuilder();

@@ -20,9 +20,9 @@ public class AssignmentStatementParser implements Parser {
     }
 
     public String parse(String statement) throws Exception {
-        String[] tokens = statement.split(IS); // will get two tokens
+        ArrayList<String> tokens = GalaxyUtility.removeEmptyTokens(statement.split(IS));
         // glob is I = (glob, I)
-        NumberMapper.aliasRomanMap.put(tokens[0].trim(), tokens[1].trim());
+        NumberMapper.aliasRomanMap.put(tokens.get(0).trim(), tokens.get(1).trim());
         return "";
     }
 
